@@ -1,23 +1,3 @@
-/***
- Name: Nicole Wilbur
-
- Project Name: CSC372-CTA06  -- Portfolio Milestone #2 Improvements
-
- Project Purpose: sort with a comparator class then with a merge sort
-
- Algorithm Used: recursion for the merge sort and a comparator interface
-
- Program Inputs: student list
-
- Program Outputs: student list sorted by roll number then by name
-
- Program Limitations: can't check for valid names and addresses
-
- Program Errors: requires two taps of enter after "false" to exit loops. Probably a scanner issue. Tried getting
- help from SmartThinking and got anything but.
-
- ==================
- ***/
 package com.company;
 
 import java.util.*;
@@ -34,7 +14,7 @@ public class Main {
                 do {
                     System.out.println("Please enter the student's roll number:");
                     rollno = scnr.nextInt();
-                    while (!(rollno > 0 && rollno < Integer.MAX_VALUE)) {                                 //4-28-21 improvement: set to IntegerMaxValue instead of 1000000
+                    while (!(rollno > 0 && rollno < Integer.MAX_VALUE)) {
                         System.out.println("Please enter a valid integer greater than zero: ");
                         rollno = scnr.nextInt();
                     }
@@ -69,14 +49,14 @@ public class Main {
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("Whoops, please enter valid data");
-                scnr.nextLine();                                            //4-28-21 improvements: added scnr input to catch
-            }                                                                  // statement and deleted finally statement.
-        } while (true);                                                         // solved the double enter bug
+                scnr.nextLine();
+            }
+        } while (true);
     }
 
     public static void main(String[] args) {
-        ArrayList<StudentObject> unsortedStudentList = new ArrayList<>();  //4-28-21 improvements: don't need to repeat the
-        ArrayList<StudentObject> studentListSorted = new ArrayList<>();       //object in the new ArrayList<>() statements
+        ArrayList<StudentObject> unsortedStudentList = new ArrayList<>();
+        ArrayList<StudentObject> studentListSorted = new ArrayList<>();
         Scanner scnr = new Scanner(System.in);
         addStudent(scnr, unsortedStudentList);
         if (unsortedStudentList.size() <= 1){
@@ -97,6 +77,6 @@ public class Main {
             }
         }
         System.out.println("Goodbye!");
-        scnr.close();                                                           //4-27-21 improvement: close scanner
+        scnr.close();                                                           
     }
 }
